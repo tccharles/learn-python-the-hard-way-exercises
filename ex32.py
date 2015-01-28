@@ -36,6 +36,15 @@ for i in elements:
 	print "Element was: %d" % i
 
 '''
+Append:
+When you write elements.append(i) you are actually setting off a chain of events inside Python to cause something to happen to the elements list. Here's how it works:
+1. Python sees you mentioned elements and looks up that variable. It might have to look backward to see if you created with =, if it is a function argument, or if it's a global variable. Either way it has to find the elements first.
+2. Once it finds elements it reads the . (period) operator and starts to look at variables that are a part of elements. Since elements is a list, it knows that elements has a bunch of functions.
+3. It then hits append and compares the name to all the names that elements says it owns. If append is in there (it is) then Python grabs that to use.
+4. Next Python sees the ( (parenthesis) and realizes, "Oh hey, this should be a function." At this point it calls (runs, executes) the function just like normally, but instead it calls the function with an extra argument.
+5. That extra argument is ... elements! I know, weird, right? But that's how Python works so it's best to just remember it and assume that's the result. What happens, at the end of all this, is a function call that looks like: append(elements, 'i') instead of what you read which is elements.append('i').
+Note: this info came from ex38, but its example was mystuff.append('hello')
+
 Other things:
 1. 2-dimensional list: [[1,2,3],[4,5,6]]
 
